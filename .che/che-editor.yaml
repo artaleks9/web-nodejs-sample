@@ -9,7 +9,7 @@ inline:
     - id: init-che-idea-command
       exec:
         component: che-idea-runtime-description
-        commandLine: /projector/entrypoint-volume.sh
+        commandLine: 'nohup /projector/entrypoint-volume.sh > /projector/entrypoint-logs.txt 2>&1 &'
   events:
     preStart:
       - init-container-command
