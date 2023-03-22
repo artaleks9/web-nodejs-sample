@@ -1,24 +1,34 @@
 inline:
   schemaVersion: 2.1.0
   metadata:
-    name: che-idea
+    name: che-incubator/che-pycharm/next
+    displayName: JetBrains PyCharm Community
+    description: JetBrains PyCharm Community IDE for Eclipse Che - next
+    icon: https://resources.jetbrains.com/storage/products/pycharm/img/meta/pycharm_logo_300x300.png
+    attributes:
+      publisher: che-incubator
+      version: next
+      title: JetBrains PyCharm Community IDE for Eclipse Che - next
+      repository: 'https://github.com/che-incubator/jetbrains-editor-images'
+      firstPublicationDate: '2021-10-06'
+      skipMetaYaml: true
   commands:
     - id: init-container-command
       apply:
-        component: che-idea-injector
-    - id: init-che-idea-command
+        component: che-pycharm-injector
+    - id: init-che-pycharm-command
       exec:
-        component: che-idea-runtime-description
+        component: che-pycharm-runtime-description
         commandLine: 'nohup /projector/entrypoint-volume.sh > /projector/entrypoint-logs.txt 2>&1 &'
   events:
     preStart:
       - init-container-command
     postStart:
-      - init-che-idea-command
+      - init-che-pycharm-command
   components:
-    - name: che-idea-runtime-description
+    - name: che-pycharm-runtime-description
       container:
-        image: quay.io/devfile/universal-developer-image@sha256:49986fed7f4e2555a154c856795c689b8367206b63ec37426fe2c8e43f5630e4
+        image: 'quay.io/devfile/universal-developer-image:ubi8-9436df2'
         env:
           - name: PROJECTOR_ASSEMBLY_DIR
             value: /projector
@@ -42,35 +52,35 @@ inline:
               cookiesAuthEnabled: true
               discoverable: false
               urlRewriteSupported: true
-              secure: false
             targetPort: 8887
             exposure: public
-            path: /?backgroundColor=434343&wss
+            path: '/?backgroundColor=434343&wss'
+            secure: false
             protocol: http
           - name: intellij-redirect-1
-            attributes:
-              discoverable: false
-              urlRewriteSupported: false
             targetPort: 13131
             exposure: public
             protocol: http
-          - name: intellij-redirect-2
             attributes:
               discoverable: false
               urlRewriteSupported: false
+          - name: intellij-redirect-2
             targetPort: 13132
             exposure: public
             protocol: http
-          - name: intellij-redirect-3
             attributes:
               discoverable: false
               urlRewriteSupported: false
+          - name: intellij-redirect-3
             targetPort: 13133
             exposure: public
             protocol: http
+            attributes:
+              discoverable: false
+              urlRewriteSupported: false
       attributes:
-        app.kubernetes.io/component: che-idea-runtime
-        app.kubernetes.io/part-of: che-idea.eclipse.org
+        app.kubernetes.io/component: che-pycharm-runtime
+        app.kubernetes.io/part-of: che-pycharm.eclipse.org
         controller.devfile.io/container-contribution: true
     - name: projector-volume
       volume: {}
@@ -78,11 +88,10 @@ inline:
       volume: {}
     - name: projector-java-configuration
       volume: {}
-    - name: che-idea-injector
+    - name: che-pycharm-injector
       container:
-        image: quay.io/che-incubator/che-idea:next
-        command:
-          - /projector/entrypoint-init-container.sh
+        image: 'quay.io/che-incubator/che-pycharm:next'
+        command: ["/projector/entrypoint-init-container.sh"]
         env:
           - name: PROJECTOR_VOLUME_MOUNT
             value: /projector-volume
