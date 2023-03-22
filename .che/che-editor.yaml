@@ -33,8 +33,8 @@ inline:
             path: /home/user/.java
         memoryLimit: 6144Mi
         memoryRequest: 2048Mi
-        cpuLimit: 2000m
-        cpuRequest: 1500m
+        cpuLimit: 1000m
+        cpuRequest: 500m
         endpoints:
           - name: intellij
             attributes:
