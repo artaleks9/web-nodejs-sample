@@ -5,20 +5,20 @@ inline:
   commands:
     - id: init-container-command
       apply:
-        component: che-idea-injector
+        component: idea-rhel8-injector
     - id: init-che-idea-command
       exec:
-        component: che-idea-runtime-description
-        commandLine: 'nohup /projector/entrypoint-volume.sh > /projector/entrypoint-logs.txt 2>&1 &'
+        component: idea-rhel8
+        commandLine: nohup /projector/entrypoint-volume.sh > /projector/entrypoint-logs.txt 2>&1 &
   events:
     preStart:
       - init-container-command
     postStart:
       - init-che-idea-command
   components:
-    - name: che-idea-runtime-description
+    - name: idea-rhel8
       container:
-        image: quay.io/devfile/universal-developer-image@sha256:49986fed7f4e2555a154c856795c689b8367206b63ec37426fe2c8e43f5630e4
+        image: registry.redhat.io/devspaces/udi-rhel8:3.6
         env:
           - name: PROJECTOR_ASSEMBLY_DIR
             value: /projector
@@ -33,8 +33,8 @@ inline:
             path: /home/user/.java
         memoryLimit: 6144Mi
         memoryRequest: 2048Mi
-        cpuLimit: 1000m
-        cpuRequest: 500m
+        cpuLimit: 2000m
+        cpuRequest: 1500m
         endpoints:
           - name: intellij
             attributes:
@@ -69,8 +69,8 @@ inline:
             exposure: public
             protocol: http
       attributes:
-        app.kubernetes.io/component: che-idea-runtime
-        app.kubernetes.io/part-of: che-idea.eclipse.org
+        app.kubernetes.io/component: idea-rhel8-runtime
+        app.kubernetes.io/part-of: idea-rhel8.eclipse.org
         controller.devfile.io/container-contribution: true
     - name: projector-volume
       volume: {}
@@ -78,9 +78,9 @@ inline:
       volume: {}
     - name: projector-java-configuration
       volume: {}
-    - name: che-idea-injector
+    - name: idea-rhel8-injector
       container:
-        image: quay.io/che-incubator/che-idea:next
+        image: registry.redhat.io/devspaces/idea-rhel8:3.6
         command:
           - /projector/entrypoint-init-container.sh
         env:
