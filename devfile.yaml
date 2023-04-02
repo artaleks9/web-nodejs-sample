@@ -14,6 +14,13 @@ components:
       mountSources: true
     attributes:
       controller.devfile.io/merge-contribution: true
+  - name: ubi-minimal
+    container:
+      image: registry.access.redhat.com/ubi8/ubi-minimal
+      command: ['tail']
+      args: ['-f', '/dev/null']
+      memoryLimit: 64M
+      mountSources: true 
 
 commands:
   - id: install-dependencies
