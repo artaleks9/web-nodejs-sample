@@ -5,9 +5,6 @@ components:
   - name: tools
     container:
       image: quay.io/rnikitenko/ubi9/go-toolset:latest
-      env:
-        - name: VSCODE_NODEJS_RUNTIME_DIR
-          value: /usr/bin
       endpoints:
         - exposure: public
           name: nodejs
