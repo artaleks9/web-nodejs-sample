@@ -4,7 +4,7 @@ metadata:
 components:
   - name: tools
     container:
-      image: registry.access.redhat.com/ubi9/go-toolset:latest
+      image: quay.io/rnikitenko/ubi9/go-toolset:latest
       env:
         - name: VSCODE_NODEJS_RUNTIME_DIR
           value: /usr/bin
