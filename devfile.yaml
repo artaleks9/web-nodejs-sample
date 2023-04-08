@@ -4,7 +4,11 @@ metadata:
 components:
   - name: tools
     container:
-      image: quay.io/rnikitenko/ubi9/go-toolset:latest
+      image: registry.access.redhat.com/ubi8/nodejs-18:1-32
+      args: ['tail', '-f', '/dev/null']
+      env:
+        - name: VSCODE_NODEJS_RUNTIME_DIR
+          value: /usr/bin
       endpoints:
         - exposure: public
           name: nodejs
