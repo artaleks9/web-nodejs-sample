@@ -21,7 +21,7 @@ inline:
     - id: init-che-code-command
       exec:
         component: che-code-runtime-description
-        commandLine: 'nohup /checode/entrypoint-volume.sh > /checode/entrypoint-logs.txt 2>&1 &'
+        commandLine: '/checode/entrypoint-volume.sh'
   events:
     preStart:
       - init-container-command

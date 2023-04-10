@@ -4,10 +4,7 @@ metadata:
 components:
   - name: tools
     container:
-      image: quay.io/rnikitenko/ubi9/go-toolset:latest
-      env:
-        - name: VSCODE_NODEJS_RUNTIME_DIR
-          value: /usr/bin
+      image: quay.io/devfile/universal-developer-image:ubi8-latest
       endpoints:
         - exposure: public
           name: nodejs
