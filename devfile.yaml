@@ -23,6 +23,15 @@ components:
       mountSources: true 
 
 commands:
+  - id: test-env
+    exec:
+      label: "Test ENV in commands"
+      component: tools
+      workingDir: ${PROJECT_SOURCE}/app
+      commandLine: "echo ${KUBERNETES_SERVICE_HOST}"
+      group:
+        kind: run
+
   - id: install-dependencies
     exec:
       label: "Install dependencies"
