@@ -23,6 +23,33 @@ components:
       mountSources: true 
 
 commands:
+  - id: test-env-var
+    exec:
+      label: "Test $USER env var"
+      component: tools
+      commandLine: echo "Hello $USER"
+      env:
+        - name: USER
+          value: roman
+  - id: test-env-var-2
+    exec:
+      label: "Test ${USER} env var"
+      component: tools
+      commandLine: echo "Hello ${USER}"
+      env:
+        - name: USER
+          value: roman
+  - id: test-env-var-3
+    exec:
+      label: "Test ${DASHBOARD_URL} env var"
+      component: tools
+      commandLine: echo "DASHBOARD URL ${DASHBOARD_URL}"
+  - id: test-env-var-4
+    exec:
+      label: "Test $DASHBOARD_URL env var"
+      component: tools
+      commandLine: echo "DASHBOARD URL $DASHBOARD_URL"
+
   - id: install-dependencies
     exec:
       label: "Install dependencies"
