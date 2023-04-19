@@ -41,14 +41,14 @@ commands:
           value: roman
   - id: test-env-var-3
     exec:
-      label: "Test ${DASHBOARD_URL} env var"
+      label: "Test ${KUBERNETES_SERVICE_HOST} env var"
       component: tools
-      commandLine: echo "DASHBOARD URL ${DASHBOARD_URL}"
+      commandLine: echo "KUBERNETES_SERVICE_HOST ${KUBERNETES_SERVICE_HOST}"
   - id: test-env-var-4
     exec:
-      label: "Test $DASHBOARD_URL env var"
+      label: "Test $KUBERNETES_SERVICE_HOST"
       component: tools
-      commandLine: echo "DASHBOARD URL $DASHBOARD_URL"
+      commandLine: echo "KUBERNETES_SERVICE_HOST $KUBERNETES_SERVICE_HOST"
 
   - id: install-dependencies
     exec:
