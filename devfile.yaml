@@ -23,6 +23,14 @@ components:
       mountSources: true 
 
 commands:
+  - id: command-using-env
+    exec:
+      component: tooling-container
+      commandLine: echo "Hello $USER"
+      env:
+        - name: USER
+          value: janedoe
+          
   - id: test-env
     exec:
       label: "Test ENV in commands"
