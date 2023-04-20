@@ -43,7 +43,7 @@ commands:
     exec:
       label: "Test mixed env vars with unknown var"
       component: tools
-      commandLine: cd $PROJECT_DIR && echo "${USER}" && echo ${UNKNOWN_VAR} && echo $USER
+      commandLine: echo "cd $PROJECT_DIR && echo ${USER} && echo ${UNKNOWN_VAR} && echo $USER"
       env:
         - name: USER
           value: Roman
