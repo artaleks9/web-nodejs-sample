@@ -27,65 +27,36 @@ commands:
     exec:
       label: "Test $USER env var"
       component: tools
-      commandLine: echo "Hello $USER"
+      commandLine: echo "Hello $USER !"
       env:
         - name: USER
-          value: roman
+          value: Roman
   - id: test-env-var-2
     exec:
       label: "Test ${USER} env var"
       component: tools
-      commandLine: echo "Hello ${USER}"
+      commandLine: echo "Hello ${USER}!"
       env:
         - name: USER
-          value: roman
+          value: Roman
   - id: test-env-var-3
     exec:
-      label: "Test ${KUBERNETES_SERVICE_HOST} env var"
+      label: "Test mixed env vars with unknown var"
       component: tools
-      commandLine: echo "KUBERNETES_SERVICE_HOST ${KUBERNETES_SERVICE_HOST}"
+      commandLine: cd $PROJECT_DIR && echo "${USER}" && echo ${UNKNOWN_VAR} && echo $USER
+      env:
+        - name: USER
+          value: Roman
+        - name: PROJECT_DIR
+          value: /projects
   - id: test-env-var-4
     exec:
-      label: "Test $KUBERNETES_SERVICE_HOST"
+      label: "Test env var from container: ${KUBERNETES_SERVICE_HOST}"
+      component: tools
+      commandLine: echo "KUBERNETES_SERVICE_HOST ${KUBERNETES_SERVICE_HOST}"
+  - id: test-env-var-5
+    exec:
+      label: "Test env var from container: $KUBERNETES_SERVICE_HOST"
       component: tools
       commandLine: echo "KUBERNETES_SERVICE_HOST $KUBERNETES_SERVICE_HOST"
-
-  - id: install-dependencies
-    exec:
-      label: "Install dependencies"
-      component: tools
-      workingDir: ${PROJECT_SOURCE}/app
-      commandLine: "npm install"
-      group:
-        kind: build
-        isDefault: true
-
-  - id: run-application
-    exec:
-      label: "Run web application"
-      component: tools
-      workingDir: ${PROJECT_SOURCE}/app
-      commandLine: "nodemon app.js"
-      group:
-        kind: run
-
-  - id: debug
-    exec:
-      label: "Run web application (debugging enabled)"
-      component: tools
-      workingDir: ${PROJECT_SOURCE}/app
-      commandLine: "nodemon --inspect app.js"
-      group:
-        kind: debug
-        isDefault: true
-
-  - id: stop-application
-    exec:
-      label: "Stop web application"
-      component: tools
-      commandLine: >-
-          node_server_pids=$(pgrep -fx '.*nodemon (--inspect )?app.js' | tr "\\n" " ") &&
-          echo "Stopping node server with PIDs: ${node_server_pids}" && 
-          kill -15 ${node_server_pids} &>/dev/null && echo 'Done.'
-      group:
-        kind: run
+  
