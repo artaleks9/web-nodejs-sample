@@ -25,10 +25,10 @@ components:
 commands:
   - id: open-file
     exec:
-      label: "Open File"
+      label: "Open Browser"
       component: tools
-      commandLine: "${command:workbench.action.files.openFile}"
-
+      commandLine: "${input:openSimpleBrowser}"
+      
   - id: open-file-parameter
     exec:
       label: "Open File with parameter"
