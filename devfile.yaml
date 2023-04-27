@@ -23,6 +23,12 @@ components:
       mountSources: true 
 
 commands:
+  - id: open-file
+    exec:
+      label: "Open File"
+      component: tools
+      commandLine: "${command:workbench.action.files.openFile}"
+      
   - id: test-env-var
     exec:
       label: "Test $USER env var"
