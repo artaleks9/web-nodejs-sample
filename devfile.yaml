@@ -28,6 +28,12 @@ commands:
       label: "Open File"
       component: tools
       commandLine: "${command:workbench.action.files.openFile}"
+
+  - id: open-file-parameter
+    exec:
+      label: "Open File with parameter"
+      component: tools
+      commandLine: "${command:vscode.open}"
       
   - id: test-env-var
     exec:
