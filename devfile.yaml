@@ -15,6 +15,7 @@ components:
       mountSources: true
     attributes:
       controller.devfile.io/merge-contribution: true
+      controller.devfile.io/storage-type: ephemeral
 
 commands:
   - id: install-dependencies
