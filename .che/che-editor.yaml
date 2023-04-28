@@ -30,7 +30,7 @@ inline:
   components:
     - name: che-code-injector
       container:
-        image: 'docker pull quay.io/devspaces/code-rhel8:next'
+        image: 'quay.io/devspaces/code-rhel8:next'
         command: ["/entrypoint-init-container.sh"]
         volumeMounts:
           - name: checode
