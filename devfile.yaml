@@ -14,6 +14,8 @@ components:
       mountSources: true
     attributes:
       controller.devfile.io/merge-contribution: true
+      controller.devfile.io/storage-type: ephemeral
+
   - name: ubi-minimal
     container:
       image: registry.access.redhat.com/ubi8/ubi-minimal
