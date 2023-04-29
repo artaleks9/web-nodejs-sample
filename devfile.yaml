@@ -21,7 +21,7 @@ components:
 commands:
   - id: open-file-from-command
     exec:
-      label: "Open File From Devfile Command"
+      label: "Open File using Devfile Command"
       component: tools
       workingDir: ${PROJECT_SOURCE}
       commandLine: "${input:openFileInput}"
