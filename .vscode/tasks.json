@@ -9,6 +9,12 @@
 			"args": "/projects/web-nodejs-sample/package.json"
 		},
 		{
+			"id": "openURLInput",
+			"type": "command",
+			"command": "custom-open-command",
+			"args": "https://nodejs.org/"
+		},
+		{
 			"id": "openSimpleBrowser",
 			"type": "command",
 			"command": "simpleBrowser.show",

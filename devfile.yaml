@@ -25,6 +25,12 @@ commands:
       component: tools
       workingDir: ${PROJECT_SOURCE}
       commandLine: "${input:openFileInput}"
+  - id: open-url-from-command
+    exec:
+      label: "Open External URL using Devfile Command"
+      component: tools
+      workingDir: ${PROJECT_SOURCE}
+      commandLine: "${input:openURLInput}"
   
   - id: open-browser-from-command
     exec:
