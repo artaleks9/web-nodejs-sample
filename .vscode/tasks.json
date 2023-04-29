@@ -1,0 +1,27 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		
+		{
+			"label": "Open Simple Browser",
+			"command": "${input:openSimpleBrowser}",
+			"problemMatcher": []
+		}
+	],
+	"inputs": [
+		{
+			"id": "openFileInput",
+			"type": "command",
+			"command": "custom-open-command",
+			"args": "/projects/web-nodejs-sample/package.json"
+		},
+		{
+			"id": "openSimpleBrowser",
+			"type": "command",
+			"command": "simpleBrowser.show",
+			"args": [
+				"https://nodejs.org/"
+			]
+		}
+	]
+}

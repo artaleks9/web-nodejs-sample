@@ -1,6 +1,8 @@
 schemaVersion: 2.1.0
 metadata:
   name: nodejs-web-app
+attributes:
+  controller.devfile.io/storage-type: ephemeral
 components:
   - name: tools
     container:
@@ -17,42 +19,16 @@ components:
       controller.devfile.io/merge-contribution: true
 
 commands:
-  - id: install-dependencies
+  - id: open-file-from-command
     exec:
-      label: "Install dependencies"
+      label: "Open File From Devfile Command"
       component: tools
-      workingDir: ${PROJECT_SOURCE}/app
-      commandLine: "npm install"
-      group:
-        kind: build
-        isDefault: true
-
-  - id: run-application
+      workingDir: ${PROJECT_SOURCE}
+      commandLine: "${input:openFileInput}"
+  
+  - id: open-browser-from-command
     exec:
-      label: "Run web application"
+      label: "Open Simple Browser"
       component: tools
-      workingDir: ${PROJECT_SOURCE}/app
-      commandLine: "nodemon app.js"
-      group:
-        kind: run
-
-  - id: debug
-    exec:
-      label: "Run web application (debugging enabled)"
-      component: tools
-      workingDir: ${PROJECT_SOURCE}/app
-      commandLine: "nodemon --inspect app.js"
-      group:
-        kind: debug
-        isDefault: true
-
-  - id: stop-application
-    exec:
-      label: "Stop web application"
-      component: tools
-      commandLine: >-
-          node_server_pids=$(pgrep -fx '.*nodemon (--inspect )?app.js' | tr "\\n" " ") &&
-          echo "Stopping node server with PIDs: ${node_server_pids}" && 
-          kill -15 ${node_server_pids} &>/dev/null && echo 'Done.'
-      group:
-        kind: run
+      workingDir: ${PROJECT_SOURCE}
+      commandLine: "${input:openSimpleBrowser}"
