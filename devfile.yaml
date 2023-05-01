@@ -2,7 +2,7 @@ schemaVersion: 2.1.0
 metadata:
   name: nodejs-web-app
 attributes:
-      controller.devfile.io/storage-type: ephemeral
+  controller.devfile.io/storage-type: ephemeral
 components:
   - name: tools
     container:
