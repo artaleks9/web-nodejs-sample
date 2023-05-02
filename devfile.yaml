@@ -44,4 +44,4 @@ commands:
       label: "Use Input from User as Command Argument"
       component: tools
       workingDir: ${PROJECT_SOURCE}
-      commandLine: "${input:appName}"
+      commandLine: "echo ${input:appName}"
