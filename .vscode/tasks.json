@@ -21,6 +21,12 @@
 			"args": [
 				"https://nodejs.org/"
 			]
-		}
+		},
+		{
+      "type": "promptString",
+      "id": "appName",
+      "description": "Name your application.",
+      "default": "default-app-name"
+    }
 	]
 }
