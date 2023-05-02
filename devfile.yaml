@@ -1,6 +1,8 @@
 schemaVersion: 2.1.0
 metadata:
   name: nodejs-web-app
+attributes:
+  controller.devfile.io/storage-type: ephemeral
 components:
   - name: tools
     container:
@@ -14,49 +16,28 @@ components:
       mountSources: true
     attributes:
       controller.devfile.io/merge-contribution: true
-  - name: ubi-minimal
-    container:
-      image: registry.access.redhat.com/ubi8/ubi-minimal
-      command: ['tail']
-      args: ['-f', '/dev/null']
-      memoryLimit: 64M
-      mountSources: true 
 
 commands:
-  - id: test-env-var
+  - id: test-command-env-var
     exec:
-      label: "Test $USER env var"
+      label: "Test Command Env Vars"
       component: tools
-      commandLine: echo "Hello $USER !"
-      env:
-        - name: USER
-          value: Roman
-  - id: test-env-var-2
-    exec:
-      label: "Test ${USER} env var"
-      component: tools
-      commandLine: echo "Hello ${USER}!"
-      env:
-        - name: USER
-          value: Roman
-  - id: test-env-var-3
-    exec:
-      label: "Test mixed env vars with unknown var"
-      component: tools
-      commandLine: echo "cd $PROJECT_DIR && echo ${USER} && echo ${UNKNOWN_VAR} && echo $USER"
+      commandLine: >-
+        echo "Hello $USER" && 
+        echo "The Project Dir: ${PROJECT_DIR}"
       env:
         - name: USER
           value: Roman
         - name: PROJECT_DIR
-          value: /projects
-  - id: test-env-var-4
+          value: /projects/web-nodejs-sample
+  - id: test-component-env-var
     exec:
-      label: "Test env var from container: ${KUBERNETES_SERVICE_HOST}"
+      label: "Test Component Env Var"
       component: tools
-      commandLine: echo "KUBERNETES_SERVICE_HOST ${KUBERNETES_SERVICE_HOST}"
-  - id: test-env-var-5
-    exec:
-      label: "Test env var from container: $KUBERNETES_SERVICE_HOST"
-      component: tools
-      commandLine: echo "KUBERNETES_SERVICE_HOST $KUBERNETES_SERVICE_HOST"
+      commandLine: >-
+        echo "Hello ${USER}" && 
+        echo "The KUBERNETES SERVICE HOST is ${KUBERNETES_SERVICE_HOST}"
+      env:
+        - name: USER
+          value: Roman
   
