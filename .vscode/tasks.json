@@ -23,10 +23,10 @@
 			]
 		},
 		{
-      "type": "promptString",
-      "id": "appName",
-      "description": "Name your application.",
-      "default": "default-app-name"
-    }
+			"type": "promptString",
+			"id": "appName",
+			"description": "Name your application.",
+			"default": "default-app-name"
+		}
 	]
 }
