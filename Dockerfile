@@ -16,6 +16,4 @@ RUN chmod a+x /web-compilation/app/app.js \
 
 RUN chmod 755 /web-compilation/entrypoint.sh
 
-USER 1001
-
 ENTRYPOINT /web-compilation/entrypoint.sh
