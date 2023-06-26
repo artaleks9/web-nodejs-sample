@@ -1,12 +1,12 @@
 schemaVersion: 2.1.0
 metadata:
-  name: nodejs-wildfly-centos
+  name: nodejs-jaegertracing
 attributes:
   controller.devfile.io/storage-type: ephemeral
 components:
   - name: tools
     container:
-      image: quay.io/wildfly/wildfly-centos7:26.1
+      image: quay.io/jaegertracing/all-in-one:1.27
       endpoints:
         - exposure: public
           name: nodejs
