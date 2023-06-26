@@ -1,12 +1,12 @@
 schemaVersion: 2.1.0
 metadata:
-  name: nodejs-web-app
+  name: nodejs-web-app-ubi9-nodejs
 attributes:
   controller.devfile.io/storage-type: ephemeral
 components:
   - name: tools
     container:
-      image: quay.io/wildfly/wildfly-centos7:26.1
+      image: quay.io/devfile/base-developer-image:ubi9-latest
       endpoints:
         - exposure: public
           name: nodejs
