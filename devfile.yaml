@@ -7,6 +7,9 @@ components:
   - name: tools
     container:
       image: registry.access.redhat.com/ubi8/openjdk-11:latest
+      env:
+        - name: SHELL
+          value: /usr/bin/bash
       args: ['tail', '-f', '/dev/null']
       endpoints:
         - exposure: public
