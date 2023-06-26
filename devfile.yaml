@@ -1,12 +1,12 @@
 schemaVersion: 2.1.0
 metadata:
-  name: nodejs-jaegertracing
+  name: nodejs-ubi8-nodejs-18
 attributes:
   controller.devfile.io/storage-type: ephemeral
 components:
   - name: tools
     container:
-      image: quay.io/jaegertracing/all-in-one:1.27
+      image: registry.access.redhat.com/ubi8/nodejs-18:1-32
       endpoints:
         - exposure: public
           name: nodejs
