@@ -1,12 +1,12 @@
 schemaVersion: 2.1.0
 metadata:
-  name: nodejs-web-app-java11-nodejs
+  name: nodejs-web-app-composer-nodejs
 attributes:
   controller.devfile.io/storage-type: ephemeral
 components:
   - name: tools
     container:
-      image: quay.io/eclipse/che-java11-maven:next
+      image: quay.io/devfile/composer:2.4
       endpoints:
         - exposure: public
           name: nodejs
