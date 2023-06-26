@@ -7,6 +7,7 @@ components:
   - name: tools
     container:
       image: quay.io/devfile/composer:2.4
+      args: ['tail', '-f', '/dev/null']
       endpoints:
         - exposure: public
           name: nodejs
