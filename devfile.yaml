@@ -6,7 +6,7 @@ attributes:
 components:
   - name: tools
     container:
-      image: quay.io/devfile/base-developer-image:ubi9-latest
+      image: quay.io/eclipse/che-java11-maven:next
       endpoints:
         - exposure: public
           name: nodejs
