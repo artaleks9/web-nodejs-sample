@@ -1,15 +1,10 @@
 schemaVersion: 2.1.0
 metadata:
   name: nodejs-ubi8-openjdk-11-latest
-attributes:
-  controller.devfile.io/storage-type: ephemeral
 components:
   - name: tools
     container:
       image: registry.access.redhat.com/ubi8/openjdk-11:latest
-      env:
-        - name: SHELL
-          value: /usr/bin/bash
       args: ['tail', '-f', '/dev/null']
       endpoints:
         - exposure: public
