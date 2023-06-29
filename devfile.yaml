@@ -8,9 +8,6 @@ components:
     container:
       image: registry.access.redhat.com/ubi8/nodejs-18:1-32
       args: ['tail', '-f', '/dev/null']
-      env:
-        - name: SHELL
-          value: /usr/bin/bash
       endpoints:
         - exposure: public
           name: nodejs
