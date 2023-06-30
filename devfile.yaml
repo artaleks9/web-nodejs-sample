@@ -1,6 +1,6 @@
 schemaVersion: 2.1.0
 metadata:
-  name: nodejs-ubi8-nodejs-18
+  name: test-ubi8-nodejs-18
 attributes:
   controller.devfile.io/storage-type: ephemeral
 components:
