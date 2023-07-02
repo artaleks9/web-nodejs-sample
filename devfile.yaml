@@ -10,7 +10,7 @@ components:
       args: ['tail', '-f', '/dev/null']
       env:
           - name: SHELL
-            value: /usr/bin/bash
+            value: /bin/bash
       endpoints:
         - exposure: public
           name: nodejs
