@@ -8,9 +8,6 @@ components:
     container:
       image: quay.io/devfile/composer:2.4
       args: ['tail', '-f', '/dev/null']
-      env:
-          - name: SHELL
-            value: /bin/bash
       endpoints:
         - exposure: public
           name: nodejs
