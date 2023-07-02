@@ -31,6 +31,9 @@ inline:
     - name: che-code-injector
       container:
         image: 'quay.io/rnikitenko/che-code:alpine'
+        env:
+          - name: SHELL
+            value: /usr/bin/bash
         command: ["/entrypoint-init-container.sh"]
         volumeMounts:
           - name: checode
