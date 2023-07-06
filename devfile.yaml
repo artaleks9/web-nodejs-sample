@@ -1,6 +1,6 @@
 schemaVersion: 2.1.0
 metadata:
-  name: nodejs-web-app-java11-nodejs
+  name: nodejs-java11-maven
 attributes:
   controller.devfile.io/storage-type: ephemeral
 components:
