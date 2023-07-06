@@ -1,12 +1,12 @@
 schemaVersion: 2.1.0
 metadata:
-  name: nodejs-web-app-composer-nodejs
+  name: nodejs-ubi8-openjdk-17
 attributes:
   controller.devfile.io/storage-type: ephemeral
 components:
   - name: tools
     container:
-      image: quay.io/devfile/composer:2.4
+      image: registry.access.redhat.com/ubi8/openjdk-17
       args: ['tail', '-f', '/dev/null']
       endpoints:
         - exposure: public
