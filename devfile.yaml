@@ -1,12 +1,12 @@
 schemaVersion: 2.1.0
 metadata:
-  name: nodejs-wildfly-centos
+  name: nodejs-websphere-liberty
 attributes:
   controller.devfile.io/storage-type: ephemeral
 components:
   - name: tools
     container:
-      image: quay.io/wildfly/wildfly-centos7:26.1
+      image: icr.io/appcafe/websphere-liberty-devfile-stack:22.0.0.1
       endpoints:
         - exposure: public
           name: nodejs
