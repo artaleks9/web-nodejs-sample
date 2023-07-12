@@ -7,6 +7,9 @@ components:
   - name: tools
     container:
       image: quay.io/wildfly/wildfly-centos7:26.1
+      env:
+        - name: VSCODE_NODEJS_RUNTIME_DIR
+          value: /checode-linux-libc/customNode/bin
       endpoints:
         - exposure: public
           name: nodejs
