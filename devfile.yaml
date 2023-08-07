@@ -1,6 +1,6 @@
 schemaVersion: 2.1.0
 metadata:
-  name: rnikitenko-che-code-latest
+  name: che-code-static-nodejs
 components:
   - name: tools
     container:
@@ -13,6 +13,9 @@ components:
       memoryLimit: 2Gi
       memoryRequest: 256Mi
       mountSources: true
+      env:
+        - name: VSCODE_NODEJS_RUNTIME_DIR
+          value: /checode/checode-linux-libc/nodejs/bin
     attributes:
       controller.devfile.io/merge-contribution: true
 
