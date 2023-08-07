@@ -1,6 +1,6 @@
 schemaVersion: 2.1.0
 metadata:
-  name: che-code-pr-258
+  name: che-code-pull-request-258
 components:
   - name: tools
     container:
