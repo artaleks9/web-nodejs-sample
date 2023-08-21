@@ -1,6 +1,6 @@
 schemaVersion: 2.1.0
 metadata:
-  name: che-code-al
+  name: sa-permissions
 components:
   - name: tools
     container:
