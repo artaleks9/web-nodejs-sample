@@ -30,7 +30,7 @@ inline:
   components:
     - name: che-code-injector
       container:
-        image: 'ec2-3-135-212-67.us-east-2.compute.amazonaws.com:5000/redhat-airgap/che-code:next'
+        image: 'ec2-18-219-65-182.us-east-2.compute.amazonaws.com:5000/redhat-airgap/che-code:next'
         command: ["/entrypoint-init-container.sh"]
         volumeMounts:
           - name: checode
