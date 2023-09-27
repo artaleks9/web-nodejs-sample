@@ -1,6 +1,13 @@
 schemaVersion: 2.1.0
 metadata:
   name: nodejs-web-app
+projects:
+  - name: nodejs
+    git:
+      remotes:
+        origin: 'https://github.com/RomanNikitenko/web-nodejs-sample'
+      checkoutFrom:
+        revision: main
 components:
   - name: tools
     container:
