@@ -7,7 +7,7 @@ projects:
       remotes:
         origin: 'https://github.com/RomanNikitenko/web-nodejs-sample'
       checkoutFrom:
-        revision: main
+        revision: air-gap
 components:
   - name: tools
     container:
