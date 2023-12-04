@@ -1,10 +1,10 @@
 schemaVersion: 2.1.0
 metadata:
-  name: ubi9-go-custom-editor
+  name: ubi9-python-custom-editor
 components:
   - name: tools
     container:
-      image: registry.access.redhat.com/ubi9/go-toolset:1.18.10-4
+      image: registry.access.redhat.com/ubi9/python-39:1-153.1699551718
       args: ['tail', '-f', '/dev/null']
       endpoints:
         - exposure: public
