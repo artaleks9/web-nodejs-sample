@@ -5,6 +5,7 @@ components:
   - name: tools
     container:
       image: registry.access.redhat.com/ubi8
+      args: ['tail', '-f', '/dev/null']
       endpoints:
         - exposure: public
           name: nodejs
