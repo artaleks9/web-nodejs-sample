@@ -1,10 +1,10 @@
 schemaVersion: 2.1.0
 metadata:
-  name: ubi9-python-custom-editor
+  name: ubi9-openjdk-17-custom-editor
 components:
   - name: tools
     container:
-      image: registry.access.redhat.com/ubi9/python-39:1-161
+      image: registry.access.redhat.com/ubi9/openjdk-17-runtime:1.17-1
       args: ['tail', '-f', '/dev/null']
       endpoints:
         - exposure: public
