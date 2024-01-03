@@ -1,12 +1,11 @@
 schemaVersion: 2.1.0
 metadata:
-  name: nodejs-web-app
-attributes:
-  controller.devfile.io/storage-type: ephemeral
+  name: test-wildfly-centos7
 components:
   - name: tools
     container:
       image: quay.io/wildfly/wildfly-centos7:26.1
+      args: ['tail', '-f', '/dev/null']
       endpoints:
         - exposure: public
           name: nodejs
