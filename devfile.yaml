@@ -1,10 +1,10 @@
 schemaVersion: 2.1.0
 metadata:
-  name: ubi8-custom-editor
+  name: ubi8-ubi-custom-editor
 components:
   - name: tools
     container:
-      image: registry.access.redhat.com/ubi8
+      image: registry.access.redhat.com/ubi8/ubi:8.8-1032.1692772289
       args: ['tail', '-f', '/dev/null']
       endpoints:
         - exposure: public
