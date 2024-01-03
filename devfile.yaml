@@ -4,7 +4,7 @@ metadata:
 components:
   - name: tools
     container:
-      image: registry.access.redhat.com/ubi9/openjdk-17-runtime:1.17-1
+      image: registry.access.redhat.com/ubi9/openjdk-17:1.17-1
       args: ['tail', '-f', '/dev/null']
       endpoints:
         - exposure: public
