@@ -4,7 +4,7 @@ metadata:
 components:
   - name: tools
     container:
-      image: registry.access.redhat.com/ubi8
+      image: quay.io/rnikitenko/custom-ubi:latest
       args: ['tail', '-f', '/dev/null']
       endpoints:
         - exposure: public
