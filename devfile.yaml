@@ -1,10 +1,10 @@
 schemaVersion: 2.1.0
 metadata:
-  name: test-pull-request
+  name: ubuntu-22-default-editor
 components:
   - name: tools
     container:
-      image: quay.io/devfile/universal-developer-image:ubi8-latest
+      image: docker.io/ubuntu:22.04
       endpoints:
         - exposure: public
           name: nodejs
