@@ -5,6 +5,7 @@ components:
   - name: tools
     container:
       image: docker.io/ubuntu:22.04
+      args: ['tail', '-f', '/dev/null']
       endpoints:
         - exposure: public
           name: nodejs
