@@ -4,7 +4,7 @@ metadata:
 components:
   - name: tools
     container:
-      image: docker.io/ubuntu:22.04
+      image: registry.access.redhat.com/ubi9
       args: ['tail', '-f', '/dev/null']
       endpoints:
         - exposure: public
