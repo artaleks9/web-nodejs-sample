@@ -1,10 +1,10 @@
 schemaVersion: 2.1.0
 metadata:
-  name: ubuntu-22-default-editor
+  name: udi-rhel8-3-12-devspaces-editor
 components:
   - name: tools
     container:
-      image: docker.io/ubuntu:22.04
+      image: quay.io/devspaces/udi-rhel8:3.12
       args: ['tail', '-f', '/dev/null']
       endpoints:
         - exposure: public
