@@ -1,10 +1,10 @@
 schemaVersion: 2.1.0
 metadata:
-  name: udi-rhel8-3-12-devspaces-editor
+  name: ubi9-minimal-devspaces-editor
 components:
   - name: tools
     container:
-      image: quay.io/devspaces/udi-rhel8:3.12
+      image: registry.access.redhat.com/ubi9-minimal:9.3-1552@sha256:582e18f13291d7c686ec4e6e92d20b24c62ae0fc72767c46f30a69b1a6198055
       args: ['tail', '-f', '/dev/null']
       endpoints:
         - exposure: public
