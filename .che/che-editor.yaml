@@ -1,6 +1,5 @@
-inline:
-  schemaVersion: 2.1.0
-  metadata:
+schemaVersion: 2.1.0
+metadata:
     name: che-code
     displayName: VS Code - Open Source
     description: Microsoft Visual Studio Code - Open Source IDE for Eclipse Che
@@ -14,7 +13,7 @@ inline:
       repository: https://github.com/che-incubator/che-code
       firstPublicationDate: '2021-10-31'
       skipMetaYaml: true
-  commands:
+commands:
     - id: init-container-command
       apply:
         component: che-code-injector
@@ -22,12 +21,12 @@ inline:
       exec:
         component: che-code-runtime-description
         commandLine: 'nohup /checode/entrypoint-volume.sh > /checode/entrypoint-logs.txt 2>&1 &'
-  events:
+events:
     preStart:
       - init-container-command
     postStart:
       - init-che-code-command
-  components:
+components:
     - name: che-code-injector
       container:
         image: 'quay.io/devspaces/code-rhel8:3.12'
