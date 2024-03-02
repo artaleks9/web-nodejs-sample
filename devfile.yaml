@@ -24,6 +24,7 @@ components:
       imageName: java-quarkus-image:latest
       dockerfile:
         uri: src/main/docker/Dockerfile.jvm.staged
+        args: ['tail', '-f', '/dev/null']
         buildContext: .
         rootRequired: false
   - name: kubernetes-deploy
