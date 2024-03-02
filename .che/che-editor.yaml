@@ -29,7 +29,7 @@ events:
 components:
     - name: che-code-injector
       container:
-        image: 'quay.io/devspaces/code-rhel8:3.12'
+        image: 'quay.io/che-incubator-pull-requests/che-code:pr-332-amd64'
         command: ["/entrypoint-init-container.sh"]
         volumeMounts:
           - name: checode

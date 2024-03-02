@@ -1,59 +1,56 @@
-schemaVersion: 2.1.0
+schemaVersion: 2.2.0
 metadata:
-  name: ubi9-minimal-devspaces-editor
+  name: java-quarkus
+  version: 1.2.1
+  provider: Red Hat
+  supportUrl: https://github.com/devfile-samples/devfile-support#support-information
+  icon: https://design.jboss.org/quarkus/logo/final/SVG/quarkus_icon_rgb_default.svg
+  website: https://quarkus.io
+  displayName: Quarkus Java
+  description: Quarkus with Java
+  tags:
+    - Java
+    - Quarkus
+  projectType: Quarkus
+  language: Java
+  attributes:
+    alpha.dockerimage-port: 8081
+parent:
+  id: java-quarkus
+  registryUrl: 'https://registry.devfile.io'
 components:
-  - name: tools
-    container:
-      image: registry.access.redhat.com/ubi9-minimal:9.3-1552@sha256:582e18f13291d7c686ec4e6e92d20b24c62ae0fc72767c46f30a69b1a6198055
-      args: ['tail', '-f', '/dev/null']
-      endpoints:
-        - exposure: public
-          name: nodejs
-          protocol: http
-          targetPort: 3000
-      memoryLimit: 2Gi
-      memoryRequest: 256Mi
-      mountSources: true
+  - name: image-build
+    image:
+      imageName: java-quarkus-image:latest
+      dockerfile:
+        uri: src/main/docker/Dockerfile.jvm.staged
+        buildContext: .
+        rootRequired: false
+  - name: kubernetes-deploy
     attributes:
-      controller.devfile.io/merge-contribution: true
-
+      deployment/replicas: 1
+      deployment/cpuRequest: 10m
+      deployment/memoryRequest: 100Mi
+      deployment/container-port: 8081
+    kubernetes:
+      uri: deploy.yaml
+      endpoints:
+        - name: http-8081
+          targetPort: 8081
+          path: /
+          secure: true
 commands:
-  - id: install-dependencies
-    exec:
-      label: "Install dependencies"
-      component: tools
-      workingDir: ${PROJECT_SOURCE}/app
-      commandLine: "npm install"
+  - id: build-image
+    apply:
+      component: image-build
+  - id: deployk8s
+    apply:
+      component: kubernetes-deploy
+  - id: deploy
+    composite:
+      commands:
+        - build-image
+        - deployk8s
       group:
-        kind: build
+        kind: deploy
         isDefault: true
-
-  - id: run-application
-    exec:
-      label: "Run web application"
-      component: tools
-      workingDir: ${PROJECT_SOURCE}/app
-      commandLine: "nodemon app.js"
-      group:
-        kind: run
-
-  - id: debug
-    exec:
-      label: "Run web application (debugging enabled)"
-      component: tools
-      workingDir: ${PROJECT_SOURCE}/app
-      commandLine: "nodemon --inspect app.js"
-      group:
-        kind: debug
-        isDefault: true
-
-  - id: stop-application
-    exec:
-      label: "Stop web application"
-      component: tools
-      commandLine: >-
-          node_server_pids=$(pgrep -fx '.*nodemon (--inspect )?app.js' | tr "\\n" " ") &&
-          echo "Stopping node server with PIDs: ${node_server_pids}" && 
-          kill -15 ${node_server_pids} &>/dev/null && echo 'Done.'
-      group:
-        kind: run
