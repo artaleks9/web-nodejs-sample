@@ -1,10 +1,10 @@
 schemaVersion: 2.1.0
 metadata:
-  name: ubi9-ubi-custom-editor
+  name: ubi9-openssl-custom-editor
 components:
   - name: tools
     container:
-      image: registry.access.redhat.com/ubi9/ubi:9.3-1476
+      image: registry.access.redhat.com/ubi9/openssl:9.3-11
       args: ['tail', '-f', '/dev/null']
       endpoints:
         - exposure: public
