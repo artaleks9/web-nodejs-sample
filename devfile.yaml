@@ -4,7 +4,7 @@ metadata:
 components:
   - name: tools
     container:
-      image: registry.access.redhat.com/ubi9/nodejs-18:1-88
+      image: registry.access.redhat.com/ubi9/ubi:9.3-1552
       args: ['tail', '-f', '/dev/null']
       endpoints:
         - exposure: public
