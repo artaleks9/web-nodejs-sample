@@ -14,9 +14,6 @@ components:
       memoryLimit: 2Gi
       memoryRequest: 256Mi
       mountSources: true
-      env:
-        - name: test_boolean
-          value: true
     attributes:
       controller.devfile.io/merge-contribution: true
 
