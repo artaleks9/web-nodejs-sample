@@ -4,7 +4,7 @@ metadata:
 components:
   - name: tools
     container:
-      image: quay.io/mloriedo/cloud-dev-images:golang
+      image: registry.access.redhat.com/ubi9/ubi-minimal:9.3
       args: ['tail', '-f', '/dev/null']
       endpoints:
         - exposure: public
