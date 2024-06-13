@@ -30,7 +30,7 @@ inline:
   components:
     - name: che-code-injector
       container:
-        image: 'quay.io/che-incubator/che-code@sha256:c6de348c47e9084834027db1c4887f0592bde6e37d802380143b9ec779098322'
+        image: 'quay.io/che-incubator-pull-requests/che-code:pr-367-amd64'
         command: ["/entrypoint-init-container.sh"]
         volumeMounts:
           - name: checode
