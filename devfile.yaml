@@ -74,4 +74,17 @@ commands:
       label: "Test env var from container: $KUBERNETES_SERVICE_HOST"
       component: tools
       commandLine: echo "KUBERNETES_SERVICE_HOST $KUBERNETES_SERVICE_HOST"
+  - exec:
+      env:
+        - name: GOPATH
+          value: /projects/go-starter/.go
+        - name: GOCACHE
+          value: /projects/go-stater/.cache
+      commandLine: echo "GOCACHE=$GOCACHE" && go build main.go
+      component: runtime
+      group:
+        isDefault: true
+        kind: build
+      workingDir: /projects/go-starter
+    id: build
   
