@@ -16,7 +16,7 @@ components:
       mountSources: true
       env:
         - name: VSCODE_TRUSTED_EXTENSIONS
-          value: "github.copilot,github.copilot-chat"
+          value: "GitHub.copilot,GitHub.copilot-chat"
     attributes:
       controller.devfile.io/merge-contribution: true
 
