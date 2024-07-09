@@ -33,7 +33,7 @@ commands:
   
   - id: test-namespace-env-var
     exec:
-      label: "Install dependencies"
+      label: "Test namespace"
       component: tools
       workingDir: ${PROJECT_SOURCE}/app
       commandLine: "echo $DEVWORKSPACE_NAMESPACE"
