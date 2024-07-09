@@ -30,7 +30,14 @@ commands:
       group:
         kind: build
         isDefault: true
-
+  
+  - id: test-namespace-env-var
+    exec:
+      label: "Install dependencies"
+      component: tools
+      workingDir: ${PROJECT_SOURCE}/app
+      commandLine: "echo $DEVWORKSPACE_NAMESPACE"
+      
   - id: run-application
     exec:
       label: "Run web application"
