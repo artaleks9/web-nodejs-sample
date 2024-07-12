@@ -1,6 +1,13 @@
 schemaVersion: 2.1.0
 metadata:
   name: test-pull-request
+starterProjects:
+- git:
+    checkoutFrom:
+      revision: main
+    remotes:
+      origin: https://github.com/devfile-samples/devfile-stack-nodejs-nextjs.git
+  name: nodejs-nextjs-starter
 components:
   - name: tools
     container:
