@@ -11,7 +11,7 @@ starterProjects:
 components:
   - name: tools
     container:
-      image: registry.access.redhat.com/ubi8/nodejs-18:1-110.1719303984
+      image: quay.io/devfile/universal-developer-image:ubi8-latest
       args: ['tail', '-f', '/dev/null']
       endpoints:
         - exposure: public
