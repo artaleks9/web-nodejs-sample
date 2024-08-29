@@ -11,7 +11,7 @@ starterProjects:
 components:
   - name: tools
     container:
-      image: quay.io/devfile/universal-developer-image:ubi8-latest
+      image: registry.access.redhat.com/ubi9/ubi:9.4
       args: ['tail', '-f', '/dev/null']
       endpoints:
         - exposure: public
