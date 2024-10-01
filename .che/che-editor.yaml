@@ -25,12 +25,10 @@ inline:
   events:
     preStart:
       - init-container-command
-    postStart:
-      - init-che-code-command
   components:
     - name: che-code-injector
       container:
-        image: 'quay.io/che-incubator-pull-requests/che-code:pr-409-amd64'
+        image: 'quay.io/che-incubator-pull-requests/che-code:pr-420-amd64'
         command: ["/entrypoint-init-container.sh"]
         volumeMounts:
           - name: checode
