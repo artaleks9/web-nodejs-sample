@@ -25,7 +25,7 @@ inline:
   events:
     preStart:
       - init-container-command
-      postStart:
+    postStart:
       - init-che-code-command
   components:
     - name: che-code-injector
