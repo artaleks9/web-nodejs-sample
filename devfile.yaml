@@ -24,6 +24,9 @@ components:
       env:
         - name: VSCODE_TRUSTED_EXTENSIONS
           value: "GitHub.copilot,GitHub.copilot-chat"
+          env:
+        - name: OPENVSX_REGISTRY_URL
+          value: "https://open-vsxxxx.org"
     attributes:
       controller.devfile.io/merge-contribution: true
 
