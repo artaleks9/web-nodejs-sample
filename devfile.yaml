@@ -11,7 +11,7 @@ starterProjects:
 components:
   - name: tools
     container:
-      image: quay.io/devfile/universal-developer-image:ubi8-latest
+      image: registry.access.redhat.com/ubi9/ubi:9.4-1214.1726694543
       args: ['tail', '-f', '/dev/null']
       endpoints:
         - exposure: public
@@ -24,8 +24,6 @@ components:
       env:
         - name: VSCODE_TRUSTED_EXTENSIONS
           value: "GitHub.copilot,GitHub.copilot-chat"
-        - name: OPENVSX_REGISTRY_URL
-          value: "https://open-vsxxxx.org"
     attributes:
       controller.devfile.io/merge-contribution: true
 
