@@ -1,6 +1,13 @@
 schemaVersion: 2.1.0
 metadata:
   name: test-pull-request
+attributes:
+  .vscode/extensions.json: |
+    {
+      "recommendations": [
+        "redhat.java"
+      ]
+    }
 starterProjects:
 - git:
     checkoutFrom:
