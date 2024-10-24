@@ -1,0 +1,11 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+			{
+					"label": "Open browser",
+					"type": "shell",
+					"command": "$BROWSER https://device.sso.us-west-2.amazonaws.com/",
+					"problemMatcher": []
+			}
+	]
+}
