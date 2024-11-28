@@ -1,0 +1,15 @@
+schemaVersion: 2.1.0
+metadata:
+   name: helloworld-example
+components:
+  - name: dev-tooling
+    container:
+      image: registry.access.redhat.com/ubi9/ubi:9.5
+commands:
+  - apply:
+     component: che-code-injector
+    id: init-container-command
+  - exec:
+      commandLine: (/checode/entrypoint-volume.sh > /checode/entrypoint-logs.txt 2>&1 & ) || true
+      component: che-code-runtime-description
+    id: init-che-code-command
