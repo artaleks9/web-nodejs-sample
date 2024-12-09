@@ -1,6 +1,6 @@
 schemaVersion: 2.1.0
 metadata:
-  name: test-pull-request
+  name: test-ubi9-based
 starterProjects:
 - git:
     checkoutFrom:
@@ -21,9 +21,6 @@ components:
       memoryLimit: 2Gi
       memoryRequest: 256Mi
       mountSources: true
-      env:
-        - name: VSCODE_TRUSTED_EXTENSIONS
-          value: "GitHub.copilot,GitHub.copilot-chat"
     attributes:
       controller.devfile.io/merge-contribution: true
 
