@@ -1,6 +1,6 @@
 schemaVersion: 2.1.0
 metadata:
-  name: test-ubi8-based
+  name: test-ubi8-nodejs-based
 starterProjects:
 - git:
     checkoutFrom:
