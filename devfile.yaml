@@ -1,6 +1,6 @@
 schemaVersion: 2.1.0
 metadata:
-  name: test-ubi9-based
+  name: test-ubi8-based
 starterProjects:
 - git:
     checkoutFrom:
@@ -11,7 +11,7 @@ starterProjects:
 components:
   - name: tools
     container:
-      image: registry.access.redhat.com/ubi9/ubi:9.5
+      image: registry.access.redhat.com/ubi8:8.10
       args: ['tail', '-f', '/dev/null']
       endpoints:
         - exposure: public
