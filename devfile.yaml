@@ -11,7 +11,7 @@ starterProjects:
 components:
   - name: tools
     container:
-      image: registry.access.redhat.com/ubi9/ubi:9.5
+      image: registry.access.redhat.com/ubi9/nodejs-20:9.5-1733148170
       args: ['tail', '-f', '/dev/null']
       endpoints:
         - exposure: public
