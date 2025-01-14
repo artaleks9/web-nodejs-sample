@@ -4,7 +4,7 @@ metadata:
 components:
   - name: tools
     container:
-      image: docker.io/ubuntu:23.10
+      image: docker.io/node:20-alpine3.18
       args: ['tail', '-f', '/dev/null']
       endpoints:
         - exposure: public
