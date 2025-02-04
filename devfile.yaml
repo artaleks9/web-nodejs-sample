@@ -11,7 +11,7 @@ starterProjects:
 components:
   - name: tools
     container:
-      image: quay.io/devfile/base-developer-image
+      image: quay.io/devfile/base-developer-image:latest
       args: ['tail', '-f', '/dev/null']
       endpoints:
         - exposure: public
