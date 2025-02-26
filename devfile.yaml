@@ -1,10 +1,17 @@
-schemaVersion: 2.3.0
+schemaVersion: 2.1.0
 metadata:
-  name: nodejs-web-app
+  name: test-pull-request
+starterProjects:
+- git:
+    checkoutFrom:
+      revision: main
+    remotes:
+      origin: https://github.com/devfile-samples/devfile-stack-nodejs-nextjs.git
+  name: nodejs-nextjs-starter
 components:
   - name: tools
     container:
-      image: registry.access.redhat.com/ubi9/nodejs-20:9.5-1733148170
+      image: registry.access.redhat.com/ubi8/nodejs-18:1-110.1719303984
       args: ['tail', '-f', '/dev/null']
       endpoints:
         - exposure: public
@@ -14,6 +21,9 @@ components:
       memoryLimit: 2Gi
       memoryRequest: 256Mi
       mountSources: true
+      env:
+        - name: VSCODE_TRUSTED_EXTENSIONS
+          value: "GitHub.copilot,GitHub.copilot-chat"
     attributes:
       controller.devfile.io/merge-contribution: true
 
@@ -27,7 +37,14 @@ commands:
       group:
         kind: build
         isDefault: true
-
+  
+  - id: test-namespace-env-var
+    exec:
+      label: "Test namespace"
+      component: tools
+      workingDir: ${PROJECT_SOURCE}/app
+      commandLine: "echo $DEVWORKSPACE_NAMESPACE"
+      
   - id: run-application
     exec:
       label: "Run web application"
