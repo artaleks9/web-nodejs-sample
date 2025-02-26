@@ -1,6 +1,7 @@
 # web-nodejs-sample
 
 ExpressJS Sample Application
+Two projects in devfile.yaml
 
 # Developer Workspace
 [![Contribute](http://beta.codenvy.com/factory/resources/codenvy-contribute.svg)](http://beta.codenvy.com/f?id=r8et9w6vohmqvro8)
